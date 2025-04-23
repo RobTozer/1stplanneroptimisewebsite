@@ -1,3 +1,7 @@
+// Full Next.js Website Structure using Tailwind CSS & Framer Motion with Image Placeholders
+
+// Shared Layout Component
+// components/Layout.js
 import Head from 'next/head';
 import Link from 'next/link';
 
