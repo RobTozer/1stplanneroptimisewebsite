@@ -19,20 +19,23 @@ export default function Testimonials() {
       </section>
 
       {/* Featured Video Testimonial */}
-      <section className="py-16 bg-[#0a0a5e] text-white">
+      <section className="py-8 bg-[#0a0a5e] text-white">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-center">Featured Video Testimonial</h2>
 
             <div className="grid grid-cols-1 gap-8 items-center">
               {/* Video Embed */}
-              <div className="aspect-video bg-gray-800 rounded-lg overflow-hidden w-full max-w-4xl mx-auto">
+              <div className="bg-gray-800 rounded-lg overflow-hidden w-full max-w-4xl mx-auto h-[500px] md:h-[600px] lg:h-[700px]">
                 {/* Placeholder for video - replace with actual embed code */}
                 <video
                   controls
                   preload="metadata"
                   className="w-full h-full object-cover"
-                  poster="/placeholder.svg?height=400&width=600&text=Matt+Freeston+Video+Testimonial"
+                  poster="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/video-thumbnail-matt-freeston.jpg-placeholder"
+                  onLoadedMetadata={(e) => {
+                    e.currentTarget.currentTime = 1
+                  }}
                 >
                   <source
                     src="https://fmdowo7s1a9mqghf.public.blob.vercel-storage.com/Learners%27%20Trust%20-%20Matt%20Freeston%20%40%2008%2002%2020-vrp4AyywdMJmg44IR6WTjq100vJLRr.mp4"
