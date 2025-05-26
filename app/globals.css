@@ -19,9 +19,9 @@ body {
       sans-serif;
   }
 
-  /* Mobile-first responsive containers */
+  /* Centralized container with max-width */
   .container {
-    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
   }
 
   /* Improved mobile touch targets */
@@ -36,6 +36,19 @@ body {
 
   .heading-responsive {
     @apply text-xl sm:text-2xl lg:text-3xl;
+  }
+
+  /* Centered content containers */
+  .content-container {
+    @apply max-w-6xl mx-auto;
+  }
+
+  .text-container {
+    @apply max-w-4xl mx-auto;
+  }
+
+  .narrow-container {
+    @apply max-w-3xl mx-auto;
   }
 }
 
