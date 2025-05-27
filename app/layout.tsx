@@ -25,24 +25,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={geist.className}>
-      <body className="flex flex-col min-h-screen">
+      <body className="flex flex-col min-h-screen items-center">
         <script
           dangerouslySetInnerHTML={{
             __html: `
-        window.history.scrollRestoration = "manual";
-        document.addEventListener('beforeunload', () => {
-          window.scrollTo(0, 0);
-        });
-        window.addEventListener('load', () => {
-          window.scrollTo(0, 0);
-        });
-      `,
+  window.history.scrollRestoration = "manual";
+  document.addEventListener('beforeunload', () => {
+    window.scrollTo(0, 0);
+  });
+  window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+  });
+`,
           }}
         />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <Header />
-          <main className="flex-grow w-full">{children}</main>
-          <Footer />
+          <div className="w-full">
+            <Header />
+            <main className="flex-grow w-full">{children}</main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>

@@ -31,10 +31,11 @@ export function loadGoogleMapsScript(): Promise<void> {
       // Create script element
       const script = document.createElement("script")
       script.id = "google-maps-script"
-      // First fetch the API key from our server endpoint
+
+      // Fetch the API key from our server endpoint
       const response = await fetch("/api/maps-key")
-      const { key } = await response.json()
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${key}`
+      const data = await response.json()
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${data.key}`
       script.async = true
       script.defer = true
 

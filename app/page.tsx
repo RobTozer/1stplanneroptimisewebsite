@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { PageWrapper } from "@/components/page-wrapper"
 
 export default function Home() {
   return (
@@ -16,29 +17,32 @@ export default function Home() {
             priority
           />
         </div>
-        <div className="container relative z-10 py-20 md:py-32">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl md:text-5xl font-bold mb-6">Strategic Education Population and Asset Planning</h1>
-            <p className="text-lg md:text-xl mb-8">
-              We support education providers to create high quality school places for their pupils, without over
-              spending against their capital and revenue budgets, whilst identifying capacity within their existing
-              estates and identifying funding sources to complete the works.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button asChild size="lg" className="bg-white text-[#0a0a5e] hover:bg-gray-200">
-                <Link href="/contact">Contact Us</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-black hover:bg-white/10">
-                <Link href="#services">Our Services</Link>
-              </Button>
+        <div className="absolute inset-0 z-0 bg-blue-800 opacity-60"></div>
+        <PageWrapper>
+          <div className="relative z-10 py-20 md:py-32">
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-3xl md:text-5xl font-bold mb-6">Strategic Education Population and Asset Planning</h1>
+              <p className="text-lg md:text-xl mb-8">
+                We support education providers to create high quality school places for their pupils, without over
+                spending against their capital and revenue budgets, whilst identifying capacity within their existing
+                estates and identifying funding sources to complete the works.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <Button asChild size="lg" className="bg-white text-[#0a0a5e] hover:bg-gray-200">
+                  <Link href="/contact">Contact Us</Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="border-white text-black hover:bg-white/10">
+                  <Link href="#services">Our Services</Link>
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
+        </PageWrapper>
       </section>
 
       {/* Services Section */}
       <section id="services" className="py-16 bg-gray-50">
-        <div className="container">
+        <PageWrapper>
           <div className="text-center mb-8 max-w-screen-lg mx-auto">
             <div className="flex justify-center mb-6">
               <Image src="/logo.png" alt="1st Planner" width={250} height={100} className="h-auto" priority />
@@ -181,12 +185,12 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </PageWrapper>
       </section>
 
       {/* Testimonials Preview */}
       <section className="py-16 bg-white">
-        <div className="container">
+        <PageWrapper>
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">What Our Clients Say</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -216,12 +220,12 @@ export default function Home() {
               <Link href="/testimonials">View All Testimonials</Link>
             </Button>
           </div>
-        </div>
+        </PageWrapper>
       </section>
 
       {/* CTA Section */}
       <section className="py-16 bg-[#0a0a5e] text-white">
-        <div className="container">
+        <PageWrapper>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">Ready to Optimise Your Education and Wider Estate?</h2>
             <p className="text-lg mb-8">
@@ -232,7 +236,7 @@ export default function Home() {
               <Link href="/contact">Get in Touch</Link>
             </Button>
           </div>
-        </div>
+        </PageWrapper>
       </section>
     </>
   )

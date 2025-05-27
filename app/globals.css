@@ -75,10 +75,13 @@
   }
 }
 
-/* Custom container class for consistent centering */
+/* Replace the container class with this more explicit version */
 .container {
   @apply px-4 mx-auto;
   max-width: 1280px; /* Consistent max-width */
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Responsive adjustments */
