@@ -34,33 +34,37 @@ export function loadGoogleMapsScript(): Promise<void> {
 
       // Fetch the API key from our server endpoint
       try {
-        const response = await fetch("/api/maps-key")
+        console.log("Fetching Google Maps API key from /api/maps-key...")
+        const response = await fetch("/api/maps-key", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+
+        console.log("API response status:", response.status)
 
         if (!response.ok) {
-          console.error("Maps API response not OK:", await response.text())
+          const errorText = await response.text()
+          console.error("Maps API error response:", errorText)
           throw new Error(`Failed to fetch maps configuration: ${response.status}`)
         }
 
-        // Check if response is JSON
-        const contentType = response.headers.get("content-type")
-        if (!contentType || !contentType.includes("application/json")) {
-          console.error("Invalid content type:", contentType)
-          const text = await response.text()
-          console.error("Response text:", text.substring(0, 100) + "...")
-          throw new Error("Maps API returned non-JSON response")
-        }
-
         const data = await response.json()
+        console.log("API response received:", data.apiKey ? "API key present" : "No API key")
 
         if (data.error) {
           throw new Error(data.error)
         }
 
-        script.src = `https://maps.googleapis.com/maps/api/js?key=${data.apiKey}`
+        if (!data.apiKey) {
+          throw new Error("No API key returned from server")
+        }
+
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${data.apiKey}&libraries=places`
       } catch (error) {
         console.error("Error fetching maps API key:", error)
-        // Instead of using environment variable directly, show error
-        throw new Error("Could not load Google Maps API key")
+        throw error
       }
 
       script.async = true
@@ -68,14 +72,16 @@ export function loadGoogleMapsScript(): Promise<void> {
 
       // Set up event handlers
       script.onload = () => {
+        console.log("Google Maps script loaded successfully")
         isLoaded = true
         isLoading = false
         resolve()
       }
 
       script.onerror = (error) => {
+        console.error("Google Maps script failed to load:", error)
         isLoading = false
-        reject(error)
+        reject(new Error("Failed to load Google Maps script"))
       }
 
       // Add to document

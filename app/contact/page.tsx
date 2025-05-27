@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { PhoneCall, Mail, MapPin, Clock, Send, Linkedin, Twitter } from "lucide-react"
-import { GoogleMap } from "@/components/google-map"
+import { ServerGoogleMap } from "@/components/server-google-map"
 
 export default function Contact() {
   return (
@@ -200,7 +200,7 @@ export default function Contact() {
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <GoogleMap />
+            <ServerGoogleMap />
           </div>
         </div>
       </section>
