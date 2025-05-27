@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { clients, regionColors, typeColors } from "@/data/clients"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
-import { loadGoogleMapsScript, isGoogleMapsLoaded } from "@/utils/google-maps-loader"
+import Script from "next/script"
 
 type ClientRegion = "North" | "Midlands" | "South" | "Wales"
 type ClientType = "Diocese" | "Local Authority" | "Multi Academy Trust"
@@ -17,6 +17,8 @@ export function ClientMap() {
   const [mapError, setMapError] = useState<string | null>(null)
   const [selectedClient, setSelectedClient] = useState<string | null>(null)
   const [clientsInView, setClientsInView] = useState<string[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [scriptsLoaded, setScriptsLoaded] = useState(false)
 
   // Precise geocoding for each client based on postcode
   const clientGeocode: Record<string, { lat: number; lng: number }> = {
@@ -107,52 +109,84 @@ export function ClientMap() {
     "White Horse Federation": { lat: 51.5587, lng: -1.7797 }, // SN1 2LB
   }
 
+  // Handle script loading completion
+  const handleScriptsLoaded = () => {
+    if (!scriptsLoaded) {
+      setScriptsLoaded(true)
+    }
+  }
+
   useEffect(() => {
     // Skip if we're not in the browser or the ref isn't attached
-    if (typeof window === "undefined" || !mapRef.current) return
+    if (typeof window === "undefined" || !mapRef.current || !scriptsLoaded) return
 
     let isMounted = true
-    let map: any = null
-    let infoWindow: any = null
+
+    // Check if map is already initialized on this container
+    if (mapInstanceRef.current) {
+      console.log("Map already initialized, cleaning up first")
+      mapInstanceRef.current.remove()
+      mapInstanceRef.current = null
+    }
+
     const markers: any[] = []
 
     const initMap = async () => {
       try {
-        // Load Google Maps script if not already loaded
-        await loadGoogleMapsScript()
-
         // Check if component is still mounted
         if (!isMounted || !mapRef.current) return
 
-        // Check if Google Maps loaded successfully
-        if (!isGoogleMapsLoaded()) {
-          setMapError("Failed to load Google Maps")
-          return
+        // Access Leaflet from the global scope
+        const L = window.L
+
+        if (!L) {
+          throw new Error("Leaflet library not available")
         }
+
+        // Fix for Leaflet icon issues in webpack
+        delete (L.Icon.Default.prototype as any)._getIconUrl
+        L.Icon.Default.mergeOptions({
+          iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+          iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+          shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+        })
 
         // Center on UK
         const ukCenter = { lat: 52.5, lng: -2.0 }
 
         // Create the map
-        map = new window.google.maps.Map(mapRef.current, {
-          center: ukCenter,
-          zoom: 6,
-          mapTypeId: "hybrid", // Set initial map type to hybrid (satellite with labels)
-          mapTypeControl: true,
-          streetViewControl: false,
-          fullscreenControl: true,
-        })
+        const newMap = L.map(mapRef.current).setView([ukCenter.lat, ukCenter.lng], 6)
+        mapInstanceRef.current = newMap
 
-        // Store map instance for later use
-        mapInstanceRef.current = map
+        // Add tile layer (OpenStreetMap)
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          maxZoom: 19,
+        }).addTo(newMap)
 
-        // Create info window
-        infoWindow = new window.google.maps.InfoWindow()
+        // Add satellite layer option
+        const satelliteLayer = L.tileLayer(
+          "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+          {
+            attribution:
+              "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+            maxZoom: 19,
+          },
+        )
 
-        // Precise geocoding for each client based on postcode
+        // Add layer control
+        const baseMaps = {
+          "Street Map": L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 19,
+          }),
+          Satellite: satelliteLayer,
+        }
+
+        L.control.layers(baseMaps).addTo(newMap)
 
         // Create bounds to fit all visible markers
-        const bounds = new window.google.maps.LatLngBounds()
+        const bounds = new L.LatLngBounds([])
         let hasVisibleMarkers = false
         const visibleClients: string[] = []
 
@@ -164,36 +198,34 @@ export function ClientMap() {
 
           if (position && isTypeMatch && isRegionMatch) {
             hasVisibleMarkers = true
-            bounds.extend(position)
+            bounds.extend([position.lat, position.lng])
             visibleClients.push(client.name)
 
-            const marker = new window.google.maps.Marker({
-              position,
-              map,
-              title: client.name,
-              icon: {
-                path: window.google.maps.SymbolPath.CIRCLE,
-                fillColor: typeColors[client.type],
-                fillOpacity: 0.9,
-                strokeWeight: 1,
-                strokeColor: "#FFFFFF",
-                scale: 8,
-              },
+            // Create custom icon with client type color
+            const icon = L.divIcon({
+              className: "custom-div-icon",
+              html: `<div style="background-color: ${typeColors[client.type]}; width: 16px; height: 16px; border-radius: 50%; border: 2px solid white;"></div>`,
+              iconSize: [20, 20],
+              iconAnchor: [10, 10],
             })
 
+            const marker = L.marker([position.lat, position.lng], { icon }).addTo(newMap)
+
             // Add click listener to marker
-            marker.addListener("click", () => {
+            marker.on("click", () => {
               setSelectedClient(client.name)
 
-              infoWindow.setContent(`
+              // Create popup content
+              const popupContent = `
                 <div style="padding: 8px; max-width: 200px;">
                   <h3 style="font-weight: bold; margin-bottom: 5px;">${client.name}</h3>
                   <p style="margin: 0 0 5px; font-size: 12px;">${client.type} - ${client.region}</p>
                   <p style="margin: 0; font-size: 12px;">${client.postcode}</p>
                 </div>
-              `)
+              `
 
-              infoWindow.open(map, marker)
+              // Open popup
+              marker.bindPopup(popupContent).openPopup()
             })
 
             markers.push(marker)
@@ -204,20 +236,23 @@ export function ClientMap() {
 
         // Fit bounds if we have visible markers
         if (hasVisibleMarkers) {
-          map.fitBounds(bounds)
+          newMap.fitBounds(bounds)
 
           // Don't zoom in too far on small datasets
-          const listener = window.google.maps.event.addListener(map, "idle", () => {
-            if (map.getZoom() > 8) {
-              map.setZoom(8)
-            }
-            window.google.maps.event.removeListener(listener)
-          })
+          if (newMap.getZoom() > 8) {
+            newMap.setZoom(8)
+          }
         }
+
+        // Make sure we're still mounted before updating state
+        if (!isMounted) return
+        setIsLoading(false)
       } catch (error) {
         console.error("Error initializing map:", error)
         if (isMounted) {
-          setMapError("Failed to initialize map")
+          if (!isMounted) return
+          setMapError(error instanceof Error ? error.message : "Failed to initialize map")
+          setIsLoading(false)
         }
       }
     }
@@ -227,16 +262,21 @@ export function ClientMap() {
     // Cleanup function
     return () => {
       isMounted = false
+
       // Clear markers
       if (markers.length > 0) {
-        markers.forEach((marker) => marker.setMap(null))
+        markers.forEach((marker) => {
+          if (marker && marker.remove) marker.remove()
+        })
       }
-      // Close info window if open
-      if (infoWindow) {
-        infoWindow.close()
+
+      // Remove the map instance
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current.remove()
+        mapInstanceRef.current = null
       }
     }
-  }, [activeRegion, activeType])
+  }, [activeRegion, activeType, scriptsLoaded])
 
   // Group clients by region and type for the tables
   const clientsByRegion = clients.reduce(
@@ -265,6 +305,22 @@ export function ClientMap() {
 
   return (
     <div className="space-y-6">
+      {/* Load Leaflet CSS */}
+      <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossOrigin=""
+      />
+
+      {/* Load Leaflet JS */}
+      <Script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossOrigin=""
+        onLoad={handleScriptsLoaded}
+      />
+
       <div className="flex flex-col md:flex-row gap-4 sticky top-0 z-10 bg-white p-4 shadow-sm rounded-md w-full">
         <Tabs
           defaultValue="All"
@@ -319,7 +375,13 @@ export function ClientMap() {
               ref={mapRef}
               className="w-full rounded-lg border border-gray-300 shadow-md"
               style={{ height: "500px" }}
-            />
+            >
+              {isLoading && (
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-100 bg-opacity-80 z-50">
+                  <div className="animate-spin rounded-full h-12 w-12 border-4 border-gray-300 border-t-blue-600"></div>
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="flex flex-wrap gap-4 mt-4 justify-center">
@@ -362,7 +424,7 @@ export function ClientMap() {
 
                           // Reset map zoom to show all markers
                           if (mapInstanceRef.current) {
-                            const bounds = new window.google.maps.LatLngBounds()
+                            const bounds = new window.L.LatLngBounds([])
                             let hasVisibleMarkers = false
 
                             clients.forEach((client) => {
@@ -371,23 +433,16 @@ export function ClientMap() {
                               const isRegionMatch = activeRegion === "All" || client.region === activeRegion
 
                               if (position && isTypeMatch && isRegionMatch) {
-                                bounds.extend(position)
+                                bounds.extend([position.lat, position.lng])
                                 hasVisibleMarkers = true
                               }
                             })
 
                             if (hasVisibleMarkers) {
                               mapInstanceRef.current.fitBounds(bounds)
-                              const listener = window.google.maps.event.addListener(
-                                mapInstanceRef.current,
-                                "idle",
-                                () => {
-                                  if (mapInstanceRef.current.getZoom() > 8) {
-                                    mapInstanceRef.current.setZoom(8)
-                                  }
-                                  window.google.maps.event.removeListener(listener)
-                                },
-                              )
+                              if (mapInstanceRef.current.getZoom() > 8) {
+                                mapInstanceRef.current.setZoom(8)
+                              }
                             }
                           }
                         } else {
@@ -397,16 +452,29 @@ export function ClientMap() {
                           const position = clientGeocode[client.name]
                           if (position && mapInstanceRef.current) {
                             // Zoom to the client's location
-                            mapInstanceRef.current.setCenter(position)
-                            mapInstanceRef.current.setZoom(12)
+                            mapInstanceRef.current.setView([position.lat, position.lng], 12)
 
                             // Find and trigger click on the marker to show info window
-                            setTimeout(() => {
-                              const markers = document.querySelectorAll(`[title="${client.name}"]`)
-                              if (markers.length > 0 && window.google && window.google.maps) {
-                                window.google.maps.event.trigger(markers[0], "click")
+                            const markers = document.querySelectorAll(".leaflet-marker-icon")
+                            markers.forEach((marker) => {
+                              // This is a simplified approach - in a real app you might want to
+                              // store references to markers with client IDs for more precise selection
+                              const markerBounds = marker.getBoundingClientRect()
+                              const markerCenter = {
+                                x: markerBounds.left + markerBounds.width / 2,
+                                y: markerBounds.top + markerBounds.height / 2,
                               }
-                            }, 100)
+
+                              // Simulate a click on the marker
+                              const clickEvent = new MouseEvent("click", {
+                                bubbles: true,
+                                cancelable: true,
+                                view: window,
+                                clientX: markerCenter.x,
+                                clientY: markerCenter.y,
+                              })
+                              marker.dispatchEvent(clickEvent)
+                            })
                           }
                         }
                       }}
@@ -444,7 +512,7 @@ export function ClientMap() {
               setSelectedClient(null)
               // Reset map zoom to show all markers
               if (mapInstanceRef.current) {
-                const bounds = new window.google.maps.LatLngBounds()
+                const bounds = new window.L.LatLngBounds([])
                 let hasVisibleMarkers = false
 
                 clients.forEach((client) => {
@@ -453,19 +521,16 @@ export function ClientMap() {
                   const isRegionMatch = activeRegion === "All" || client.region === activeRegion
 
                   if (position && isTypeMatch && isRegionMatch) {
-                    bounds.extend(position)
+                    bounds.extend([position.lat, position.lng])
                     hasVisibleMarkers = true
                   }
                 })
 
                 if (hasVisibleMarkers) {
                   mapInstanceRef.current.fitBounds(bounds)
-                  const listener = window.google.maps.event.addListener(mapInstanceRef.current, "idle", () => {
-                    if (mapInstanceRef.current.getZoom() > 8) {
-                      mapInstanceRef.current.setZoom(8)
-                    }
-                    window.google.maps.event.removeListener(listener)
-                  })
+                  if (mapInstanceRef.current.getZoom() > 8) {
+                    mapInstanceRef.current.setZoom(8)
+                  }
                 }
               }
             }}
@@ -536,7 +601,7 @@ export function ClientMap() {
 
                                 // Reset map zoom to show all markers
                                 if (mapInstanceRef.current) {
-                                  const bounds = new window.google.maps.LatLngBounds()
+                                  const bounds = new window.L.LatLngBounds([])
                                   let hasVisibleMarkers = false
 
                                   clients.forEach((client) => {
@@ -545,23 +610,16 @@ export function ClientMap() {
                                     const isRegionMatch = activeRegion === "All" || client.region === activeRegion
 
                                     if (position && isTypeMatch && isRegionMatch) {
-                                      bounds.extend(position)
+                                      bounds.extend([position.lat, position.lng])
                                       hasVisibleMarkers = true
                                     }
                                   })
 
                                   if (hasVisibleMarkers) {
                                     mapInstanceRef.current.fitBounds(bounds)
-                                    const listener = window.google.maps.event.addListener(
-                                      mapInstanceRef.current,
-                                      "idle",
-                                      () => {
-                                        if (mapInstanceRef.current.getZoom() > 8) {
-                                          mapInstanceRef.current.setZoom(8)
-                                        }
-                                        window.google.maps.event.removeListener(listener)
-                                      },
-                                    )
+                                    if (mapInstanceRef.current.getZoom() > 8) {
+                                      mapInstanceRef.current.setZoom(8)
+                                    }
                                   }
                                 }
                               } else {
@@ -571,16 +629,7 @@ export function ClientMap() {
                                 const position = clientGeocode[client.name]
                                 if (position && mapInstanceRef.current) {
                                   // Zoom to the client's location
-                                  mapInstanceRef.current.setCenter(position)
-                                  mapInstanceRef.current.setZoom(12)
-
-                                  // Find and trigger click on the marker to show info window
-                                  setTimeout(() => {
-                                    const markers = document.querySelectorAll(`[title="${client.name}"]`)
-                                    if (markers.length > 0 && window.google && window.google.maps) {
-                                      window.google.maps.event.trigger(markers[0], "click")
-                                    }
-                                  }, 100)
+                                  mapInstanceRef.current.setView([position.lat, position.lng], 12)
                                 }
                               }
                             }}
@@ -602,10 +651,9 @@ export function ClientMap() {
   )
 }
 
-// Add TypeScript declarations
+// Add TypeScript declarations for Leaflet global
 declare global {
   interface Window {
-    [key: string]: any
-    google: any
+    L: any
   }
 }
