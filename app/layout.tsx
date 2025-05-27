@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={geist.className}>
-      <body>
+      <body className="flex flex-col min-h-screen">
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -41,7 +41,7 @@ export default function RootLayout({
         />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <Header />
-          <main className="min-h-screen">{children}</main>
+          <main className="flex-grow w-full">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

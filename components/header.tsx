@@ -6,7 +6,7 @@ import { PhoneCall, Mail } from "lucide-react"
 export default function Header() {
   return (
     <header className="w-full bg-white border-b sticky top-0 z-50 shadow-sm">
-      <div className="container flex items-center justify-between py-4">
+      <div className="container mx-auto flex items-center justify-between py-4">
         <Link href="/" className="flex items-center">
           <Image
             src="/1stPlannerLogo.png"

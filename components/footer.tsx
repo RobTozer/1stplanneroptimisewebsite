@@ -4,8 +4,8 @@ import { PhoneCall, Mail } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0a0a5e] text-white">
-      <div className="container py-12">
+    <footer className="bg-[#0a0a5e] text-white w-full">
+      <div className="container mx-auto py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <Image
