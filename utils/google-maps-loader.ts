@@ -33,9 +33,19 @@ export function loadGoogleMapsScript(): Promise<void> {
       script.id = "google-maps-script"
 
       // Fetch the API key from our server endpoint
-      const response = await fetch("/api/maps-key")
+      const response = await fetch("/api/google-maps-config")
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch maps configuration")
+      }
+
       const data = await response.json()
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${data.key}`
+
+      if (data.error) {
+        throw new Error(data.error)
+      }
+
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${data.apiKey}`
       script.async = true
       script.defer = true
 
