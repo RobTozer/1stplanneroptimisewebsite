@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -125,7 +127,7 @@ export default function Contact() {
             <div className="lg:col-span-2">
               <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
 
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium">
@@ -177,7 +179,7 @@ export default function Contact() {
                 </div>
 
                 <div className="flex justify-end">
-                  <Button type="submit" className="bg-[#0a0a5e] hover:bg-[#0a0a7e]">
+                  <Button type="button" className="bg-[#0a0a5e] hover:bg-[#0a0a7e]">
                     <Send className="h-4 w-4 mr-2" />
                     Send Message
                   </Button>
@@ -265,8 +267,16 @@ export default function Contact() {
                   Call Us
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline">
-                \
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-[#0a0a5e]"
+              >
+                <Link href="mailto:enquiries@1stplanner.com">
+                  <Mail className="h-4 w-4 mr-2" />
+                  Email Us
+                </Link>
               </Button>
             </div>
           </div>

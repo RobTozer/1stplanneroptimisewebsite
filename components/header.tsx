@@ -10,7 +10,7 @@ export default function Header() {
       <PageWrapper>
         <div className="flex flex-col">
           {/* Top row with logo and navigation */}
-          <div className="flex items-center justify-evenly py-3">
+          <div className="flex items-center justify-between py-3">
             <Link href="/" className="flex items-center flex-shrink-0">
               <Image
                 src="/1stPlannerLogo.png"
@@ -22,7 +22,7 @@ export default function Header() {
               />
             </Link>
 
-            <nav className="hidden md:flex items-center gap-2">
+            <nav className="hidden md:flex items-center justify-evenly w-full">
               <Link href="/" className="text-sm font-medium hover:text-primary transition-colors px-4 py-2 text-center">
                 Home
               </Link>
@@ -49,24 +49,6 @@ export default function Header() {
                 className="text-sm font-medium hover:text-primary transition-colors px-4 py-2 text-center"
               >
                 Clients
-              </Link>
-              <Link
-                href="/testimonials"
-                className="text-sm font-medium hover:text-primary transition-colors px-4 py-2 text-center"
-              >
-                Testimonials
-              </Link>
-              <Link
-                href="/future"
-                className="text-sm font-medium hover:text-primary transition-colors px-4 py-2 text-center"
-              >
-                Future
-              </Link>
-              <Link
-                href="/contact"
-                className="text-sm font-medium hover:text-primary transition-colors px-4 py-2 text-center"
-              >
-                Contact
               </Link>
               <Button asChild variant="default" size="sm" className="bg-[#0a0a5e] hover:bg-[#0a0a7e] ml-2">
                 <Link href="/contact">Contact Us</Link>
