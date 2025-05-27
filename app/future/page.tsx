@@ -24,8 +24,8 @@ export default function Future() {
             <div>
               <h2 className="text-2xl font-bold mb-6">Web-based Front End</h2>
               <p className="text-gray-700 mb-4">
-                We're planning developing a bespoke web-based front end as a evolution to our current Power BI
-                dashboards
+                We're developing a comprehensive web-based platform that will revolutionise how education providers
+                interact with their data and planning tools. This intuitive interface will provide:
               </p>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-start">
@@ -80,9 +80,9 @@ export default function Future() {
             <div className="bg-gray-100 p-8 rounded-lg">
               <div className="aspect-video bg-white rounded-lg shadow-md flex items-center justify-center">
                 <img
-                  src="/placeholder.svg?height=400&width=600&query=modern web dashboard interface with charts and analytics"
-                  alt="Modern web dashboard interface"
-                  className="w-full h-full object-cover rounded-lg"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/AdobeStock_1127570875-dxQowU1s1KSUgfNk14X1QbCUv92Bqn.jpeg"
+                  alt="Data Analytics Dashboard - Modern interface showing real-time data visualisations, charts, and metrics"
+                  className="rounded-lg object-cover w-full h-full"
                 />
               </div>
             </div>
@@ -96,27 +96,11 @@ export default function Future() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 bg-gray-100 p-8 rounded-lg">
               <div className="aspect-video bg-white rounded-lg shadow-md flex items-center justify-center">
-                <div className="text-center p-6">
-                  <h3 className="text-xl font-semibold mb-4">Digital Twin Preview</h3>
-                  <div className="bg-gray-100 p-4 rounded-lg mb-4">
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-blue-50 p-3 rounded-lg">
-                        <div className="h-24 bg-blue-100 rounded mb-2"></div>
-                        <div className="h-4 bg-blue-200 rounded mb-1 w-3/4"></div>
-                        <div className="h-4 bg-blue-200 rounded w-1/2"></div>
-                      </div>
-                      <div className="bg-green-50 p-3 rounded-lg">
-                        <div className="h-24 bg-green-100 rounded mb-2"></div>
-                        <div className="h-4 bg-green-200 rounded mb-1 w-3/4"></div>
-                        <div className="h-4 bg-green-200 rounded w-1/2"></div>
-                      </div>
-                    </div>
-                    <div className="mt-4 h-32 bg-gray-200 rounded flex items-center justify-center">
-                      <div className="text-gray-500 text-sm">3D School Model Visualisation</div>
-                    </div>
-                  </div>
-                  <p className="text-sm text-gray-500">Digital twin technology for educational estate planning</p>
-                </div>
+                <img
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/AdobeStock_603436520-FSdMX1ibzEH1ARPli7rAyptgui8N4R.jpeg"
+                  alt="Digital Twin Visualisation - 3D holographic representation of buildings with glowing blue wireframes"
+                  className="rounded-lg object-cover w-full h-full"
+                />
               </div>
             </div>
             <div className="order-1 md:order-2">
@@ -342,14 +326,15 @@ export default function Future() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                     />
                   </svg>
-                  AI-Powered Optimisation
+                  Condition and Decarbonisation Data Collection & Reporting
                 </h3>
                 <p className="text-gray-600 text-sm">
-                  Integrating artificial intelligence to enhance our optimisation algorithms, enabling more accurate
-                  predictions and recommendations.
+                  Developing comprehensive tools for collecting, analysing, and reporting on building condition and
+                  carbon footprint data, helping education providers meet sustainability targets and plan for future
+                  improvements.
                 </p>
               </div>
 
@@ -381,8 +366,8 @@ export default function Future() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl font-bold mb-4">Be Part of Our Future</h2>
             <p className="text-lg mb-8">
-              Interested in learning more about our upcoming developments or participating in our beta programs? Contact
-              us today to stay informed and get involved.
+              Interested in learning more about our upcoming developments or participating in our beta programmes?
+              Contact us today to stay informed and get involved.
             </p>
             <Button asChild size="lg" className="bg-white text-[#0a0a5e] hover:bg-gray-200">
               <Link href="/contact">Get in Touch</Link>

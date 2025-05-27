@@ -1,22 +1,14 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, Poppins } from "next/font/google"
+import { Geist } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 
-const inter = Inter({
+const geist = Geist({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
-})
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-  variable: "--font-poppins",
 })
 
 export const metadata: Metadata = {
@@ -32,8 +24,21 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="en" className={geist.className}>
       <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+        window.history.scrollRestoration = "manual";
+        document.addEventListener('beforeunload', () => {
+          window.scrollTo(0, 0);
+        });
+        window.addEventListener('load', () => {
+          window.scrollTo(0, 0);
+        });
+      `,
+          }}
+        />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <Header />
           <main className="min-h-screen">{children}</main>

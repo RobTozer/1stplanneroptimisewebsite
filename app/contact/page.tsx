@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { PhoneCall, Mail, MapPin, Clock, Send, Linkedin, Twitter } from "lucide-react"
+import { GoogleMap } from "@/components/google-map"
 
 export default function Contact() {
   return (
@@ -135,9 +136,9 @@ export default function Contact() {
 
                   <div className="space-y-2">
                     <label htmlFor="organization" className="text-sm font-medium">
-                      Organisation
+                      Organization
                     </label>
-                    <Input id="organization" placeholder="Your organisation" />
+                    <Input id="organization" placeholder="Your organization" />
                   </div>
                 </div>
 
@@ -194,15 +195,12 @@ export default function Contact() {
             <h2 className="text-2xl font-bold mb-4">Our Location</h2>
             <p className="text-gray-600">
               Find us at our office in Derbyshire, where our team of experts is ready to assist you with your
-              educational space optimisation needs.
+              educational space optimization needs.
             </p>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
-              <p className="text-gray-500">Map Location</p>
-              {/* Replace with actual map component or image */}
-            </div>
+            <GoogleMap />
           </div>
         </div>
       </section>
@@ -218,23 +216,23 @@ export default function Contact() {
                 <h3 className="font-semibold mb-2">How quickly can you provide an initial assessment?</h3>
                 <p className="text-gray-600 text-sm">
                   We typically provide an initial assessment within 2-3 weeks of receiving all necessary data and
-                  information from your organisation.
+                  information from your organization.
                 </p>
               </div>
 
               <div className="bg-white p-6 rounded-lg shadow-sm">
                 <h3 className="font-semibold mb-2">What information do you need to get started?</h3>
                 <p className="text-gray-600 text-sm">
-                  To begin our optimisation process, we typically need floor plans, current space utilization data,
+                  To begin our optimization process, we typically need floor plans, current space utilization data,
                   pupil/student numbers, and any relevant demographic projections. Our team will guide you through the
                   specific requirements during our initial consultation.
                 </p>
               </div>
 
               <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="font-semibold mb-2">Do you work with organisations outside the UK?</h3>
+                <h3 className="font-semibold mb-2">Do you work with organizations outside the UK?</h3>
                 <p className="text-gray-600 text-sm">
-                  While we primarily serve organisations within the UK, we are open to international projects. Please
+                  While we primarily serve organizations within the UK, we are open to international projects. Please
                   contact us to discuss your specific requirements and location.
                 </p>
               </div>

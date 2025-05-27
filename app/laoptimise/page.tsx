@@ -11,8 +11,8 @@ export default function LAOptimise() {
       <section className="relative text-white py-16">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LA%20School%20Background.jpg-aVYoVQ1pZGyxAZC8wc5Xu4RzaO8j5v.jpeg"
-            alt="Aerial view of UK primary school with surrounding residential area"
+            src="/weathered-prefab-school.png"
+            alt="Post-war system build primary school in poor condition"
             fill
             className="object-cover opacity-40"
             priority
@@ -32,12 +32,12 @@ export default function LAOptimise() {
               />
             </div>
             <h3 className="text-xl font-bold mb-4">
-              How Local Authorities Are Using Data to Solve the Mainstream and SEND/AP School Places Puzzle
+              How Local Authorities Are Using Data to Solve the Mainstream and SEND School Places Puzzle
             </h3>
             <p className="text-lg mb-4">
-              High needs budgets under huge pressure. Primary pupil numbers dropping. Secondary pupils numbers peaking.
-              EHCP numbers rising at a dramatic pace. A school estate that's ageing, inefficient, and often mismatched
-              to the cohorts it's trying to serve. Sound familiar?
+              High needs budgets under pressure. Primary pupils dropping. Secondary pupils peaking. EHCP numbers rising
+              at a dramatic pace. A school estate that's ageing, inefficient, and often mismatched to the cohorts it's
+              trying to serve. Sound familiar?
             </p>
             <p className="text-lg mb-8">
               For many Local Authorities, strategic planning has become a reactive scramble. Not because they lack the
@@ -126,7 +126,7 @@ export default function LAOptimise() {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span>Comprehensive SEND/AP commissioning and capital strategies</span>
+                  <span>Comprehensive SEND commissioning strategy</span>
                 </li>
               </ul>
             </div>
@@ -155,7 +155,7 @@ export default function LAOptimise() {
                 <h3 className="text-lg font-semibold mb-2">School Space Planning</h3>
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li>School Internal Space & Mainstream Projections</li>
-                  <li>School/Other Assets External Space Mapping</li>
+                  <li>School/Other Assets External Space</li>
                   <li>BB103 Sufficiency Review</li>
                   <li>BB104 Sufficiency Review</li>
                   <li>Timetable/Efficiency Assessments</li>
@@ -178,13 +178,13 @@ export default function LAOptimise() {
                 </div>
                 <h3 className="text-lg font-semibold mb-2">SEND/AP & Early Years</h3>
                 <ul className="space-y-2 text-sm text-gray-600">
+                  <li>SEND/AP Projections/Commissioning Strategy</li>
                   <li>SEN Local Authority Benchmarks</li>
                   <li>SEN EHCP Caseload</li>
                   <li>Early Years Projections</li>
                   <li>EHCP Pupil Data</li>
                   <li>Exclusion and Suspension Data</li>
                   <li>SEN Assessment and Discontinuation</li>
-                  <li>SEND/AP Projections/Commissioning Strategy</li>
                 </ul>
               </CardContent>
             </Card>
@@ -207,9 +207,9 @@ export default function LAOptimise() {
                   <li>DSG Revenue Funding</li>
                   <li>SEND Support Services Spend</li>
                   <li>High Needs Revenue Projections</li>
-                  <li>Capital Cost Estimates</li>
-                  <li>Cost Avoidance Calculations</li>
-                  <li>Capital Funding Optimisation</li>
+                  <li>Capital Costs</li>
+                  <li>Cost Avoidance</li>
+                  <li>Capital Funding</li>
                 </ul>
               </CardContent>
             </Card>
@@ -230,10 +230,10 @@ export default function LAOptimise() {
                 <h3 className="text-lg font-semibold mb-2">Area Analysis</h3>
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li>LA High Level Profile</li>
-                  <li>Pupil Home Location & Travel Distance Mapping</li>
-                  <li>Deprivation Maping by School & Pupil Home Location</li>
-                  <li>Local Development Mapping</li>
-                  <li>Potential Risk Identification</li>
+                  <li>Pupil Home Locations</li>
+                  <li>Deprivation Data</li>
+                  <li>Local Developments</li>
+                  <li>Potential Risks</li>
                 </ul>
               </CardContent>
             </Card>
@@ -253,9 +253,10 @@ export default function LAOptimise() {
                 </div>
                 <h3 className="text-lg font-semibold mb-2">School Estate</h3>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <li>School Block Age & Construction Type</li>
-                  <li>DEC Energy Ratings & C02 Production</li>
-                  <li>DfE Condition by Block & Building Element</li>
+                  <li>School Block Age</li>
+                  <li>DEC Energy Ratings</li>
+                  <li>DfE Condition</li>
+                  <li>School Level Profile</li>
                   <li>Changes to Local School Places</li>
                 </ul>
               </CardContent>
@@ -277,7 +278,6 @@ export default function LAOptimise() {
                 <h3 className="text-lg font-semibold mb-2">Planning &amp; Development</h3>
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li>Options Appraisal</li>
-                  <li>School Level Profile</li>
                   <li>BB103 Development Plan</li>
                   <li>BB104 Development Plan</li>
                 </ul>
@@ -320,9 +320,9 @@ export default function LAOptimise() {
                 </div>
                 <p className="text-sm text-gray-600 mt-4 text-center">
                   This powerful benchmarking tool allows Local Authorities to compare their EHCP caseload against
-                  "exemplar" statistical neighbour, regional and LAs with the same level of deprivation. The dashboards
-                  provide detailed breakdowns by establishment type, primary need and age range, enabling data-driven
-                  decision making for SEND/AP provision planning.
+                  statistical neighbours and regional averages. The dashboard provides detailed breakdowns by
+                  establishment type, SEN2 groups, and DSG management plans, enabling data-driven decision making for
+                  SEND provision planning.
                 </p>
               </div>
             </div>
@@ -338,10 +338,9 @@ export default function LAOptimise() {
                   />
                 </div>
                 <p className="text-sm text-gray-600 mt-4 text-center">
-                  Our SEND/AP Commissioning Strategy dashboards enables Local Authorities to model different scenarios
-                  againt their "exemplar" LA benchmarks for pupil placement costs and construction type for each of the
-                  setting types, calculating potential revenue and capital cost avoidance compared to a "Do Nothing"
-                  position over an 8-year period.
+                  Our SEND/AP Commissioning Strategy dashboard enables Local Authorities to model different scenarios
+                  for pupil placement, construction types, and setting types, calculating potential cost avoidance
+                  compared to a "Do Nothing" position over an 8-year period.
                 </p>
               </div>
             </div>
@@ -359,9 +358,8 @@ export default function LAOptimise() {
                 />
               </div>
               <p className="text-sm text-gray-600 mt-4 text-center">
-                Interactive visualisation of school capacity data showing surplus and shortfall across the Local
-                Authority area against both the NOR agaisnt PAN and their potenial BB103/BB104 Capacity basd on DfE GIFA
-                data, with geographic mapping and future projections to support strategic planning decisions.
+                Interactive visualization of school capacity data showing surplus and shortfall across the Local
+                Authority area, with geographic mapping and future projections to support strategic planning decisions.
               </p>
             </div>
           </div>
@@ -378,8 +376,8 @@ export default function LAOptimise() {
                 />
               </div>
               <p className="text-sm text-gray-600 mt-4 text-center">
-                Comprehensive analysis of DfE CDC school building condition data by block age/constuction type and
-                energy performance to support strategic estate management decisions.
+                Comprehensive analysis of school building conditions, age profiles, and energy performance to support
+                strategic estate management decisions.
               </p>
             </div>
           </div>
@@ -387,9 +385,7 @@ export default function LAOptimise() {
           {/* Deprivation Data Dashboard */}
           <div className="col-span-1 md:col-span-2 lg:col-span-3 mt-12">
             <div className="bg-white p-6 rounded-xl shadow-xl border border-gray-200">
-              <h3 className="text-xl font-bold mb-6 text-center">
-                Deprivation Data by School/Pupil Home Location and LSOA
-              </h3>
+              <h3 className="text-xl font-bold mb-6 text-center">2019 Deprivation Data by LSOA (Latest)</h3>
               <div className="w-full overflow-hidden rounded-lg shadow-[6px_8px_15px_rgba(0,0,0,0.25)] border border-black">
                 <ImageMagnifier
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Derpivation%20data.jpg-K8iaMyXJmWMZpSdLFbfeg6lpoCNyWu.jpeg"
@@ -397,8 +393,9 @@ export default function LAOptimise() {
                 />
               </div>
               <p className="text-sm text-gray-600 mt-4 text-center">
-                Detailed analysis of local deprivation indices with geographic mapping of school and pupil home
-                locations, enabling targeted resource allocation and strategic planning based on socioeconomic factors.
+                Detailed analysis of local deprivation indices with geographic mapping of school locations and pupil
+                distribution, enabling targeted resource allocation and strategic planning based on socioeconomic
+                factors.
               </p>
             </div>
           </div>
@@ -458,7 +455,7 @@ export default function LAOptimise() {
                         d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    <span>Optimised school spaces to create over 2,000 secondary places</span>
+                    <span>Optimized school spaces</span>
                   </div>
                   <div className="flex items-center mb-2">
                     <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -469,7 +466,7 @@ export default function LAOptimise() {
                         d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    <span>Improved SEND/AP provision</span>
+                    <span>Improved SEND provision</span>
                   </div>
                   <div className="flex items-center">
                     <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -480,37 +477,28 @@ export default function LAOptimise() {
                         d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    <span>Realised huge savings against available capital budgets</span>
+                    <span>Secured additional funding</span>
                   </div>
-                  <div className="mt-6 p-4 bg-blue-700 rounded-lg">
-                    <p className="text-lg font-bold text-center">
-                      "For Every £1 spent on 1st Planner Fees £59 of capital savings have been achieved, resulting in a
-                      return on investment of 5,948%"
-                    </p>
-                  </div>
+                </div>
+                <div className="mt-6 bg-white/20 backdrop-blur-sm rounded-lg p-4 border border-white/30">
+                  <p className="text-xs uppercase tracking-wide mb-1">Return on Investment</p>
+                  <p className="text-base font-bold leading-tight">
+                    £1 of 1st Planner Fees Resulted in £59 of capital savings, equating to ROI of 5,948%
+                  </p>
                 </div>
               </div>
               <div className="md:w-2/3 p-8">
                 <h4 className="text-xl font-semibold mb-4">How We Helped</h4>
                 <p className="text-gray-700 mb-4">
-                  Sheffield City Council faced challenges with increasing secondary pupil numbers and SEND/AP
-                  requirements, while working with limited space and budget constraints. Our LA Optimise service
-                  provided a comprehensive analysis of their current estate, future needs and where these could be
-                  catered for without requiring the construction of 2 new secondary schools.
+                  Sheffield City Council faced challenges with increasing pupil numbers and SEND requirements, while
+                  working with limited space and budget constraints. Our LA Optimise service provided a comprehensive
+                  analysis of their current estate and future needs.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  We identified opportunities to repurpose underutilised spaces, developed accurate projections for
-                  mainstream and SEND/AP provision, and created a strategic plan for estate development that aligned
-                  with available funding sources.
+                  We identified opportunities to repurpose underutilized spaces, developed accurate projections for
+                  mainstream and SEND provision, and created a strategic plan for estate development that aligned with
+                  available funding sources.
                 </p>
-                <div className="mt-6">
-                  <Link href="/contact" className="text-blue-600 font-medium hover:underline flex items-center">
-                    Contact us for more details
-                    <svg className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
@@ -520,17 +508,14 @@ export default function LAOptimise() {
       <section className="py-16 bg-gray-50">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-4">Ready to Optimise Your Local Authority's Education Estate?</h2>
+            <h2 className="text-2xl font-bold mb-4">Ready to Optimise Your Local Authority's Educational Estate?</h2>
             <p className="text-gray-700 mb-8">
               Contact us today to discuss how our LA Optimise service can help you create high-quality school places
-              while maximising your resources.
+              while maximizing your resources.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex justify-center">
               <Button asChild className="bg-[#0a0a5e] hover:bg-[#0a0a7e]">
                 <Link href="/contact">Request a Consultation</Link>
-              </Button>
-              <Button asChild variant="outline">
-                <Link href="/testimonials">View Testimonials</Link>
               </Button>
             </div>
           </div>

@@ -2,7 +2,6 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
-import { ImageMagnifier } from "@/components/image-magnifier"
 
 export default function MATOptimise() {
   return (
@@ -33,7 +32,7 @@ export default function MATOptimise() {
               />
             </div>
             <p className="text-lg mb-8">
-              Tailored planning and optimisation services for Multi-Academy Trusts, helping you make strategic decisions
+              Tailored planning and optimization services for Multi-Academy Trusts, helping you make strategic decisions
               about your school estate and resources across multiple sites.
             </p>
             <Button asChild className="bg-white text-green-700 hover:bg-gray-100">
@@ -253,147 +252,6 @@ export default function MATOptimise() {
         </div>
       </section>
 
-      {/* Dashboard Examples Heading */}
-      <div className="container mt-12 mb-6">
-        <h2 className="text-2xl font-bold text-center">
-          A selection of our "Optimise" MAT strategic planning dashboards are shown below:
-        </h2>
-      </div>
-
-      {/* Dashboard Examples */}
-      <section className="py-8">
-        <div className="container">
-          {/* MAT Level Profile Dashboard */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-3 mt-12">
-            <div className="bg-white p-6 rounded-xl shadow-xl border border-gray-200">
-              <h3 className="text-xl font-bold mb-6 text-center">MAT Level Profile Dashboard</h3>
-              <div className="w-full overflow-hidden rounded-lg shadow-[6px_8px_15px_rgba(0,0,0,0.25)] border border-black">
-                <ImageMagnifier
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MAT%20Level%20Profile.jpg-MTL0GUFWSwx14vbXeuwVYZAIJ3IU6u.jpeg"
-                  alt="MAT Level Profile dashboard showing trust-wide data including pupil numbers, SEN information, exclusions, and capacity metrics across multiple schools"
-                />
-              </div>
-              <p className="text-sm text-gray-600 mt-4 text-center">
-                Our MAT Level Profile dashboard provides a comprehensive view of your entire trust, with detailed
-                metrics on pupil numbers, SEN provision, exclusions, and capacity across all your academies. This
-                trust-wide perspective enables strategic planning and resource allocation decisions.
-              </p>
-            </div>
-          </div>
-
-          {/* School Level Profile Dashboard */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-3 mt-12">
-            <div className="bg-white p-6 rounded-xl shadow-xl border border-gray-200">
-              <h3 className="text-xl font-bold mb-6 text-center">School Level Profile Dashboard</h3>
-              <div className="w-full overflow-hidden rounded-lg shadow-[6px_8px_15px_rgba(0,0,0,0.25)] border border-black">
-                <ImageMagnifier
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/School%20Level%20Profile.jpg-QnPK9RiAnmqzwAUceCdjY2CkLct6FX.jpeg"
-                  alt="School Level Profile dashboard showing detailed information for an individual academy including pupil home locations, historical and projected NOR, SEN pupils by primary need, exclusions/suspensions, pupil ethnicity, capacity, and funding data"
-                />
-              </div>
-              <p className="text-sm text-gray-600 mt-4 text-center">
-                Our School Level Profile dashboard provides a detailed view of individual academies within your trust,
-                including pupil demographics, SEN data, exclusions/suspensions, historical and projected pupil numbers,
-                capacity analysis, and potential capital funding opportunities to support targeted planning at the
-                school level.
-              </p>
-            </div>
-          </div>
-
-          {/* MAT Internal Areas Dashboard */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-3 mt-12">
-            <div className="bg-white p-6 rounded-xl shadow-xl border border-gray-200">
-              <h3 className="text-xl font-bold mb-6 text-center">MAT Internal Areas Dashboard</h3>
-              <div className="w-full overflow-hidden rounded-lg shadow-[6px_8px_15px_rgba(0,0,0,0.25)] border border-black">
-                <ImageMagnifier
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MAT%20Internal%20Areas.jpg-TpiPSR2k4ubm9lPi3JfMDkIw8YJlfm.jpeg"
-                  alt="MAT Internal Areas dashboard showing capacity analysis for trust schools, comparing NOR against PAN and BB103/104 capacity with geographic mapping"
-                />
-              </div>
-              <p className="text-sm text-gray-600 mt-4 text-center">
-                This dashboard provides a comprehensive analysis of capacity across your trust's schools, comparing
-                current pupil numbers against PAN and BB103/104 capacity standards. The geographic mapping and detailed
-                data tables help identify areas of surplus and shortfall to inform strategic planning decisions.
-              </p>
-            </div>
-          </div>
-
-          {/* Capital Funding Opportunities Dashboard */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-3 mt-12">
-            <div className="bg-white p-6 rounded-xl shadow-xl border border-gray-200">
-              <h3 className="text-xl font-bold mb-6 text-center">Capital Funding Opportunities Dashboard</h3>
-              <div className="w-full overflow-hidden rounded-lg shadow-[6px_8px_15px_rgba(0,0,0,0.25)] border border-black">
-                <ImageMagnifier
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MAT%20Funding.jpg-CMhBZcfZLxkxYkyXWMGot4H7Vveuta.jpeg"
-                  alt="Capital Funding Opportunities dashboard showing funding sources, contribution types, and detailed funding allocations across different local authorities"
-                />
-              </div>
-              <p className="text-sm text-gray-600 mt-4 text-center">
-                Our Capital Funding dashboard identifies and tracks funding opportunities for your trust, including
-                Section 106 and CIL contributions, DfE capital funding, and other named contributions, helping trust
-                leaders make informed decisions about resource allocation and estate development.
-              </p>
-            </div>
-          </div>
-
-          {/* Early Years Projections Dashboard */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-3 mt-12">
-            <div className="bg-white p-6 rounded-xl shadow-xl border border-gray-200">
-              <h3 className="text-xl font-bold mb-6 text-center">Early Years Projections Dashboard</h3>
-              <div className="w-full overflow-hidden rounded-lg shadow-[6px_8px_15px_rgba(0,0,0,0.25)] border border-black">
-                <ImageMagnifier
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Early%20Years.jpg-kg9SGdcHZpggLTezAHXWci2wLT2QnD.jpeg"
-                  alt="Early Years Projections dashboard showing childcare eligibility indicators, projected changes to early years numbers, and existing childcare provision data"
-                />
-              </div>
-              <p className="text-sm text-gray-600 mt-4 text-center">
-                Our Early Years Projections dashboard provides comprehensive data for planning early childhood education
-                provision across your trust. It includes childcare eligibility indicators, projected changes in early
-                years numbers, existing childcare provision mapping, and detailed trend analysis to support strategic
-                planning for nursery and reception places.
-              </p>
-            </div>
-          </div>
-
-          {/* High Level LA Dashboard */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-3 mt-12">
-            <div className="bg-white p-6 rounded-xl shadow-xl border border-gray-200">
-              <h3 className="text-xl font-bold mb-6 text-center">High Level Local Authority Dashboard</h3>
-              <div className="w-full overflow-hidden rounded-lg shadow-[6px_8px_15px_rgba(0,0,0,0.25)] border border-black">
-                <ImageMagnifier
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LA%20Dashboard.jpg-7M5YIdDdWQE6VUpJPr853pBFtxnycG.jpeg"
-                  alt="High Level Local Authority Dashboard showing DSG outturn, EHCP caseload trends, early years projections, and funding metrics relevant to MATs"
-                />
-              </div>
-              <p className="text-sm text-gray-600 mt-4 text-center">
-                This dashboard provides trust leaders with a high-level view of Local Authority metrics that impact your
-                academies, including EHCP trends, funding allocations, and projected pupil numbers. Understanding these
-                LA-level trends is crucial for strategic planning across your trust's educational estate.
-              </p>
-            </div>
-
-            {/* MAT Options Appraisal Dashboard */}
-            <div className="col-span-1 md:col-span-2 lg:col-span-3 mt-12">
-              <div className="bg-white p-6 rounded-xl shadow-xl border border-gray-200">
-                <h3 className="text-xl font-bold mb-6 text-center">MAT Options Appraisal Dashboard</h3>
-                <div className="w-full overflow-hidden rounded-lg shadow-[6px_8px_15px_rgba(0,0,0,0.25)] border border-black">
-                  <ImageMagnifier
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MAT%20Example%20Options%20Appraisal.jpg-aEFOMSe6x4xYcxSahjbiKMwa61kwEz.jpeg"
-                    alt="MAT Options Appraisal dashboard showing comprehensive filtering options and metrics for evaluating schools including capacity, pupil numbers, funding, and geographic distribution"
-                  />
-                </div>
-                <p className="text-sm text-gray-600 mt-4 text-center">
-                  Our MAT Options Appraisal dashboard enables trust leaders to evaluate schools across multiple
-                  criteria, including capacity metrics, pupil demographics, funding, and geographic distribution. This
-                  powerful tool supports strategic decision-making for school estate planning and resource allocation
-                  across your entire trust.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Case Study */}
       <section className="py-16">
         <div className="container">
@@ -437,17 +295,17 @@ export default function MATOptimise() {
                     <span>Secured additional funding</span>
                   </div>
                 </div>
-                <div className="mt-6 p-4 bg-green-700 rounded-lg">
-                  <p className="text-lg font-bold text-center">
-                    "For Every £1 spent on 1st Planner Fees £84 of capital investment has been realised, resulting in a
-                    return on investment of 8,385%"
+                <div className="mt-6 bg-white/20 backdrop-blur-sm rounded-lg p-4 border border-white/30">
+                  <p className="text-xs uppercase tracking-wide mb-1">Return on Investment</p>
+                  <p className="text-base font-bold leading-tight">
+                    £1 of 1st Planner Fees Resulted in £84 of capital investment, equating to ROI of 8,385%
                   </p>
                 </div>
               </div>
               <div className="md:w-2/3 p-8">
                 <h4 className="text-xl font-semibold mb-4">How We Helped</h4>
                 <p className="text-gray-700 mb-4">
-                  Diverse Academies Trust needed to optimise their school estate across multiple academies, while
+                  Diverse Academies Trust needed to optimize their school estate across multiple academies, while
                   planning for changing demographics and educational requirements. Our MAT Optimise service provided a
                   comprehensive analysis of their current estate and future needs.
                 </p>
@@ -456,14 +314,6 @@ export default function MATOptimise() {
                   pupil numbers, and created a strategic plan for estate development that aligned with available funding
                   sources across the entire trust.
                 </p>
-                <div className="mt-6">
-                  <Link href="/contact" className="text-green-600 font-medium hover:underline flex items-center">
-                    Contact us for more details
-                    <svg className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
@@ -481,12 +331,9 @@ export default function MATOptimise() {
               Contact us today to discuss how our MAT Optimise service can help you create high-quality school places
               while maximizing your resources across your trust.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex justify-center">
               <Button asChild className="bg-[#0a0a5e] hover:bg-[#0a0a7e]">
                 <Link href="/contact">Request a Consultation</Link>
-              </Button>
-              <Button asChild variant="outline">
-                <Link href="/testimonials">View Testimonials</Link>
               </Button>
             </div>
           </div>

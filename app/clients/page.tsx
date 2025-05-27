@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { GoogleEarthClientMap } from "@/components/google-earth-client-map"
+import { ClientMap } from "@/components/client-map"
 
 export default function Clients() {
   return (
@@ -12,7 +12,7 @@ export default function Clients() {
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl md:text-4xl font-bold mb-6">Our Clients</h1>
             <p className="text-lg mb-8">
-              We work with a diverse range of education providers across the UK, helping them optimise their spaces and
+              We work with a diverse range of education providers across the UK, helping them optimize their spaces and
               resources to create high-quality learning environments.
             </p>
           </div>
@@ -197,13 +197,14 @@ export default function Clients() {
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-2xl font-bold mb-4">Our Nationwide Reach</h2>
             <p className="text-gray-600">
-              We work with education providers across the UK, helping them optimise their spaces and resources to create
+              We work with education providers across the UK, helping them optimize their spaces and resources to create
               high-quality learning environments.
             </p>
           </div>
 
-          {/* Google Earth Client Map */}
-          <GoogleEarthClientMap />
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <ClientMap />
+          </div>
         </div>
       </section>
 

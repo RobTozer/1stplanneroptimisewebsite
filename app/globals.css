@@ -3,64 +3,12 @@
 @tailwind utilities;
 
 body {
-  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
-  }
-  .animate-bounce-slow {
-    animation: bounce 3s infinite;
-  }
-  .font-heading {
-    font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-      sans-serif;
-  }
-
-  /* Centralized container with max-width */
-  .container {
-    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
-  }
-
-  /* Improved mobile touch targets */
-  .touch-target {
-    @apply min-h-[44px] min-w-[44px];
-  }
-
-  /* Better mobile text sizing */
-  .text-responsive {
-    @apply text-sm sm:text-base lg:text-lg;
-  }
-
-  .heading-responsive {
-    @apply text-xl sm:text-2xl lg:text-3xl;
-  }
-
-  /* Centered content containers */
-  .content-container {
-    @apply max-w-6xl mx-auto;
-  }
-
-  .text-container {
-    @apply max-w-4xl mx-auto;
-  }
-
-  .narrow-container {
-    @apply max-w-3xl mx-auto;
-  }
-}
-
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(-5%);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-  }
-  50% {
-    transform: translateY(0);
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
 

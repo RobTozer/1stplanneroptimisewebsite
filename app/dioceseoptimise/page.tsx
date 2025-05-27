@@ -31,13 +31,9 @@ export default function DioceseOptimise() {
                 priority
               />
             </div>
-            <h3 className="text-xl font-bold mb-3">
-              A Mission That Lasts: How Dioceses Are Using "Optimise" Insights to Sustain and Strengthen School Estates
-            </h3>
-            <p className="text-lg mb-6">
-              Schools are more than just buildings to deliver curriculum. They are also places of mission, community and
-              the flourishing of faith. But sustaining them in the face of budget constraints, declining rolls, and
-              maintenance backlogs is hard work. And doing that with incomplete or outdated data? Even harder.
+            <p className="text-lg mb-8">
+              Specialized planning and optimization services for Diocesan education providers, helping you make the most
+              of your school estate and resources.
             </p>
             <Button asChild className="bg-white text-purple-700 hover:bg-gray-100">
               <Link href="/contact">Request a Consultation</Link>
@@ -59,7 +55,7 @@ export default function DioceseOptimise() {
               </p>
               <p className="text-gray-700 mb-4">
                 Using our proprietary methodologies and extensive experience in the education sector, we deliver
-                actionable insights that lead to tangible improvements in space utilisation, resource allocation, and
+                actionable insights that lead to tangible improvements in space utilization, resource allocation, and
                 educational outcomes across your Diocesan schools.
               </p>
               <p className="text-gray-700">
@@ -90,7 +86,7 @@ export default function DioceseOptimise() {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span>Accurate projections for pupil numbers and the corresponding space requirements</span>
+                  <span>Accurate projections for pupil numbers and space requirements</span>
                 </li>
                 <li className="flex items-start">
                   <svg
@@ -153,8 +149,8 @@ export default function DioceseOptimise() {
                 <h3 className="text-lg font-semibold mb-2">School Space Planning</h3>
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li>School Internal Space & Mainstream Projections</li>
-                  <li>School/Other Assets External Space Mapping</li>
-                  <li>BB103 Sufficiency Analysis</li>
+                  <li>School/Other Assets External Space</li>
+                  <li>BB103 Sufficiency Review</li>
                   <li>Timetable/Efficiency Assessments</li>
                 </ul>
               </CardContent>
@@ -168,6 +164,7 @@ export default function DioceseOptimise() {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
+                      strokeLinejoin="round"
                       strokeWidth={2}
                       d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
                     />
@@ -175,7 +172,6 @@ export default function DioceseOptimise() {
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Projections & Planning</h3>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <li>Pupil and Faith Population Projections</li>
                   <li>Potential Risks</li>
                   <li>Local Developments</li>
                   <li>Changes to Local School Places</li>
@@ -222,9 +218,9 @@ export default function DioceseOptimise() {
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Estate Management</h3>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <li>School Block Age by Construction Type</li>
-                  <li>DfE CDC Condition Data by Block & Building Element</li>
-                  <li>DEC Energy Ratings & CO2 Production</li>
+                  <li>School Block Age</li>
+                  <li>DEC Energy Ratings</li>
+                  <li>DfE Condition</li>
                 </ul>
               </CardContent>
             </Card>
@@ -265,8 +261,8 @@ export default function DioceseOptimise() {
                 />
               </div>
               <p className="text-sm text-gray-600 mt-4 text-center">
-                Our Diocese Asset Ownership dashboard provides a comprehensive view of all school and wider church
-                assets across the diocese, including detailed mapping of deanery and parish boundaries, asset types, and
+                Our Diocese Asset Ownership dashboard provides a comprehensive view of all church and school assets
+                across the diocese, including detailed mapping of deanery and parish boundaries, asset types, and
                 complete property listings with tenure information.
               </p>
             </div>
@@ -282,45 +278,10 @@ export default function DioceseOptimise() {
                 />
               </div>
               <p className="text-sm text-gray-600 mt-4 text-center">
-                This powerful dashboard enables diocesan education leaders to analyse potential risks through
-                Deanery/Parish level catholicity trends, church attendance projections and school place planning data.
-                The interactive visualisations help identify areas of concern and support strategic decision-making for
-                future educational and worship provision.
-              </p>
-            </div>
-          </div>
-
-          <div className="col-span-1 md:col-span-2 lg:col-span-3 mt-12">
-            <div className="bg-white p-6 rounded-xl shadow-xl border border-gray-200">
-              <h3 className="text-xl font-bold mb-6 text-center">Diocese Changes to Local School Places Dashboard</h3>
-              <div className="w-full overflow-hidden rounded-lg shadow-[6px_8px_15px_rgba(0,0,0,0.25)] border border-black">
-                <ImageMagnifier
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Change%20to%20Local%20School%20Places.jpg-bY4vPDsA6YJIxDVRUBWkcvR4UVAa1r.jpeg"
-                  alt="Diocese Changes to Local School Places dashboard showing analysis of school place changes across the diocese, including expansions, reductions, and new provisions"
-                />
-              </div>
-              <p className="text-sm text-gray-600 mt-4 text-center">
-                This dashboard tracks and analyses changes to school places across the diocese, providing valuable
-                insights into expansions, reductions, and new provisions. This information helps diocesan leaders
-                understand capacity trends and plan strategically for future educational needs.
-              </p>
-            </div>
-          </div>
-
-          <div className="col-span-1 md:col-span-2 lg:col-span-3 mt-12">
-            <div className="bg-white p-6 rounded-xl shadow-xl border border-gray-200">
-              <h3 className="text-xl font-bold mb-6 text-center">Diocese Pupil Home Locations Analysis</h3>
-              <div className="w-full overflow-hidden rounded-lg shadow-[6px_8px_15px_rgba(0,0,0,0.25)] border border-black">
-                <ImageMagnifier
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Diocese%20Pupil%20Home%20Location.jpg-Vlb1xDcz7XXMAS4dio4nVJqOMtWz0U.jpeg"
-                  alt="Diocese Pupil Home Locations dashboard showing travel distances, geographic distribution of pupils, and detailed breakdowns by local authority and year group"
-                />
-              </div>
-              <p className="text-sm text-gray-600 mt-4 text-center">
-                This detailed analysis of pupil home locations provides valuable insights into travel distances,
-                catchment areas, and demographic patterns across the diocese, supporting strategic planning for school
-                places and resource allocation as well as dispelling the myth that faith school pupils do not reside in
-                the school's immediate vicinity.
+                This powerful dashboard enables diocesan education leaders to analyze potential risks through
+                parish-level catholicity trends, mass attendance projections, and school place planning data. The
+                interactive visualizations help identify areas of concern and support strategic decision-making for
+                future educational provision.
               </p>
             </div>
           </div>
@@ -330,33 +291,14 @@ export default function DioceseOptimise() {
               <h3 className="text-xl font-bold mb-6 text-center">Diocese Local Developments Dashboard</h3>
               <div className="w-full overflow-hidden rounded-lg shadow-[6px_8px_15px_rgba(0,0,0,0.25)] border border-black">
                 <ImageMagnifier
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Diocese%20Local%20Developments.jpg-fMM98GiEIwhyYIZC4hFWPfV590RBUn.jpeg"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Diocese%20Local%20Developments.jpg-wJ53OVF1rD2Jihl1rGO8ThH8GGEoSG.jpeg"
                   alt="Diocese Local Developments dashboard showing schools, churches, and local development vectors with detailed information on existing schools, churches, and housing developments"
                 />
               </div>
               <p className="text-sm text-gray-600 mt-4 text-center">
-                This comprehensive dashboard maps all church owned assets and local developments across the diocese.
-                This providing detailed information on the proximity of existing educational facilities and church
-                properties to planned housing developments to support strategic planning for future educational and
-                worship needs as well as opportunities for future evangalisation.
-              </p>
-            </div>
-          </div>
-
-          <div className="col-span-1 md:col-span-2 lg:col-span-3 mt-12">
-            <div className="bg-white p-6 rounded-xl shadow-xl border border-gray-200">
-              <h3 className="text-xl font-bold mb-6 text-center">Early Years Projections Dashboard</h3>
-              <div className="w-full overflow-hidden rounded-lg shadow-[6px_8px_15px_rgba(0,0,0,0.25)] border border-black">
-                <ImageMagnifier
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Early%20Years%20Projections.jpg-tCD7GLkxSWSD3ewBIluJK2OybQsbjt.jpeg"
-                  alt="Early Years Projections dashboard showing childcare eligibility indicators, projected changes to early years numbers, and existing childcare provision data"
-                />
-              </div>
-              <p className="text-sm text-gray-600 mt-4 text-center">
-                Our Early Years Projections dashboard provides comprehensive data for planning early childhood education
-                provision across the diocese. It includes childcare eligibility indicators, projected changes in early
-                years numbers, existing childcare provision mapping, and detailed trend analysis of birth rates and
-                demographics at a LSOA level to support strategic planning for nursery and reception places.
+                This comprehensive dashboard maps all schools, churches, and local development vectors across the
+                diocese, providing detailed information on existing educational facilities, church properties, and
+                planned housing developments to support strategic planning.
               </p>
             </div>
           </div>
@@ -380,6 +322,40 @@ export default function DioceseOptimise() {
 
           <div className="col-span-1 md:col-span-2 lg:col-span-3 mt-12">
             <div className="bg-white p-6 rounded-xl shadow-xl border border-gray-200">
+              <h3 className="text-xl font-bold mb-6 text-center">Diocese Pupil Home Locations Analysis</h3>
+              <div className="w-full overflow-hidden rounded-lg shadow-[6px_8px_15px_rgba(0,0,0,0.25)] border border-black">
+                <ImageMagnifier
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Diocese%20Pupil%20Home%20Location.jpg-Vlb1xDcz7XXMAS4dio4nVJqOMtWz0U.jpeg"
+                  alt="Diocese Pupil Home Locations dashboard showing travel distances, geographic distribution of pupils, and detailed breakdowns by local authority and year group"
+                />
+              </div>
+              <p className="text-sm text-gray-600 mt-4 text-center">
+                This detailed analysis of pupil home locations provides valuable insights into travel distances,
+                catchment areas, and demographic patterns across the diocese, supporting strategic planning for school
+                places and resource allocation.
+              </p>
+            </div>
+          </div>
+
+          <div className="col-span-1 md:col-span-2 lg:col-span-3 mt-12">
+            <div className="bg-white p-6 rounded-xl shadow-xl border border-gray-200">
+              <h3 className="text-xl font-bold mb-6 text-center">Diocese Changes to Local School Places Dashboard</h3>
+              <div className="w-full overflow-hidden rounded-lg shadow-[6px_8px_15px_rgba(0,0,0,0.25)] border border-black">
+                <ImageMagnifier
+                  src="[INSERT YOUR NEW IMAGE URL HERE]"
+                  alt="Diocese Changes to Local School Places dashboard showing analysis of school place changes across the diocese, including expansions, reductions, and new provisions"
+                />
+              </div>
+              <p className="text-sm text-gray-600 mt-4 text-center">
+                This dashboard tracks and analyzes changes to school places across the diocese, providing valuable
+                insights into expansions, reductions, and new provisions. This information helps diocesan leaders
+                understand capacity trends and plan strategically for future educational needs.
+              </p>
+            </div>
+          </div>
+
+          <div className="col-span-1 md:col-span-2 lg:col-span-3 mt-12">
+            <div className="bg-white p-6 rounded-xl shadow-xl border border-gray-200">
               <h3 className="text-xl font-bold mb-6 text-center">High Level Local Authority Dashboard</h3>
               <div className="w-full overflow-hidden rounded-lg shadow-[6px_8px_15px_rgba(0,0,0,0.25)] border border-black">
                 <ImageMagnifier
@@ -390,8 +366,7 @@ export default function DioceseOptimise() {
               <p className="text-sm text-gray-600 mt-4 text-center">
                 This dashboard provides diocesan leaders with a high-level view of Local Authority metrics that impact
                 diocesan schools, including EHCP trends, funding allocations, and projected pupil numbers. Understanding
-                these LA-level trends is crucial for strategic planning across the diocese's educational estate, which
-                will provide access to both revenue and the capital funding that is identified.
+                these LA-level trends is crucial for strategic planning across the diocese's educational estate.
               </p>
             </div>
           </div>
@@ -431,6 +406,24 @@ export default function DioceseOptimise() {
               </p>
             </div>
           </div>
+
+          <div className="col-span-1 md:col-span-2 lg:col-span-3 mt-12">
+            <div className="bg-white p-6 rounded-xl shadow-xl border border-gray-200">
+              <h3 className="text-xl font-bold mb-6 text-center">Diocese Options Appraisal Dashboard</h3>
+              <div className="w-full overflow-hidden rounded-lg shadow-[6px_8px_15px_rgba(0,0,0,0.25)] border border-black">
+                <ImageMagnifier
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Diocese%20Options%20Appraisal.jpg-wkIpSWGb7T53ipTTPsohvU04wqqK1I.jpeg"
+                  alt="Diocese Options Appraisal dashboard showing detailed metrics for evaluating schools including capacity, pupil numbers, SEN provision, and geographic distribution"
+                />
+              </div>
+              <p className="text-sm text-gray-600 mt-4 text-center">
+                Our Options Appraisal dashboard enables diocesan education leaders to evaluate schools across multiple
+                criteria, including capacity metrics, pupil demographics, SEN provision, and geographic distribution.
+                This powerful tool supports strategic decision-making for school estate planning and resource allocation
+                across the diocese.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -441,7 +434,7 @@ export default function DioceseOptimise() {
             <div className="md:flex">
               <div className="md:w-1/3 bg-purple-600 text-white p-8 flex flex-col justify-center">
                 <h3 className="text-2xl font-bold mb-4">Success Story</h3>
-                <p className="text-lg">Archdiocese of Birmingham</p>
+                <p className="text-lg">Diocese of Birmingham</p>
                 <div className="mt-6 text-sm">
                   <div className="flex items-center mb-2">
                     <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -452,7 +445,7 @@ export default function DioceseOptimise() {
                         d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    <span>Optimised school spaces</span>
+                    <span>Optimized school spaces</span>
                   </div>
                   <div className="flex items-center mb-2">
                     <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -465,7 +458,7 @@ export default function DioceseOptimise() {
                     </svg>
                     <span>Strategic estate planning</span>
                   </div>
-                  <div className="flex items-center mb-2">
+                  <div className="flex items-center">
                     <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path
                         strokeLinecap="round"
@@ -474,44 +467,28 @@ export default function DioceseOptimise() {
                         d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    <span>Secured £25.3 of capital funding from Local Authorities</span>
+                    <span>Secured additional funding</span>
                   </div>
-                  <div className="mt-6 p-4 bg-purple-700 rounded-lg">
-                    <p className="text-lg font-bold text-center">
-                      "For Every £1 spent on 1st Planner Fees £150 of capital investment has been realised, resulting in
-                      a return on investment of 15,046%"
-                    </p>
-                  </div>
+                </div>
+                <div className="mt-6 bg-white/20 backdrop-blur-sm rounded-lg p-4 border border-white/30">
+                  <p className="text-xs uppercase tracking-wide mb-1">Return on Investment</p>
+                  <p className="text-base font-bold leading-tight">
+                    £1 of 1st Planner Fees Resulted in £150 of capital investment, equating to ROI of 15,047%
+                  </p>
                 </div>
               </div>
               <div className="md:w-2/3 p-8">
                 <h4 className="text-xl font-semibold mb-4">How We Helped</h4>
                 <p className="text-gray-700 mb-4">
-                  The Diocese of Birmingham needed to optimise their school estate across multiple locations, while
+                  The Diocese of Birmingham needed to optimize their school estate across multiple locations, while
                   planning for changing demographics and educational requirements. Our Diocese Optimise service provided
-                  a comprehensive analysis of their current estate and future needs as well as the evidence base for a
-                  reorganisation of the established Deaneries and Parishes .
+                  a comprehensive analysis of their current estate and future needs.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  We identified opportunities to repurpose underutilised spaces, developed accurate projections for
+                  We identified opportunities to repurpose underutilized spaces, developed accurate projections for
                   pupil numbers, and created a strategic plan for estate development that aligned with available funding
-                  sources and the Dicoese's "Plan, Themes & Ambitions" and "Vision Statement".
+                  sources.
                 </p>
-                <p className="text-gray-700 mb-4">
-                  Through identifying opportunities to cater for additional pupils and working closely with a number of
-                  Local Authorities, we utilised our BB103 sufficiency and timetable efficiency assessments to develop
-                  the scope for 7 capital projects that will realise £25.3m of capital investment for the Diocese. Once
-                  the Diocese academisation process is finalised we will be supporting each of the Trusts to identify
-                  more opportunities to optimise their respective school estates.
-                </p>
-                <div className="mt-6">
-                  <Link href="/contact" className="text-purple-600 font-medium hover:underline flex items-center">
-                    Contact us for more details
-                    <svg className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
@@ -525,14 +502,11 @@ export default function DioceseOptimise() {
             <h2 className="text-2xl font-bold mb-4">Ready to Optimise Your Diocesan Educational Estate?</h2>
             <p className="text-gray-700 mb-8">
               Contact us today to discuss how our Diocese Optimise service can help you create high-quality school
-              places while maximising your resources.
+              places while maximizing your resources.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex justify-center">
               <Button asChild className="bg-[#0a0a5e] hover:bg-[#0a0a7e]">
                 <Link href="/contact">Request a Consultation</Link>
-              </Button>
-              <Button asChild variant="outline">
-                <Link href="/testimonials">View Testimonials</Link>
               </Button>
             </div>
           </div>
