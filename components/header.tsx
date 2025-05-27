@@ -50,6 +50,18 @@ export default function Header() {
               >
                 Clients
               </Link>
+              <Link
+                href="/testimonials"
+                className="text-sm font-medium hover:text-primary transition-colors px-4 py-2 text-center"
+              >
+                Testimonials
+              </Link>
+              <Link
+                href="/future"
+                className="text-sm font-medium hover:text-primary transition-colors px-4 py-2 text-center"
+              >
+                Future
+              </Link>
               <Button asChild variant="default" size="sm" className="bg-[#0a0a5e] hover:bg-[#0a0a7e] ml-2">
                 <Link href="/contact">Contact Us</Link>
               </Button>
